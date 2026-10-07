@@ -1,0 +1,12 @@
+{
+  "name": "Thánh Ca Hub",
+  "short_name": "Thánh Ca",
+  "start_url": "/songs",
+  "display": "standalone",
+  "background_color": "#f7f6f3",
+  "theme_color": "#263859",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

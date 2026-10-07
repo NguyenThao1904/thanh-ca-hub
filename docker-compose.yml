@@ -1,0 +1,29 @@
+# Run Thánh Ca Hub on one server (a small VPS, a NAS, a computer at the parish):
+#
+#   docker compose up -d --build
+#   docker compose exec app thanhca create-admin --email you@example.org --name "Your Name"
+#
+# Then open http://<server>:8000. The database and uploaded files live in the
+# "data" volume; back them up with:
+#
+#   docker compose exec app thanhca backup --output /data/backup.zip
+#
+# For HTTPS, put a reverse proxy in front (Caddy, nginx, or Cloudflare Tunnel).
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      APP_NAME: "Thánh Ca Hub"
+      DEFAULT_LOCALE: vi
+      TIME_ZONE: Asia/Ho_Chi_Minh
+      # Optional: a PostgreSQL database instead of the SQLite file in /data.
+      # DATABASE_URL: postgresql://user:password@host:5432/thanhca
+    volumes:
+      - data:/data
+
+volumes:
+  data:

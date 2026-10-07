@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Fonts are bundled with the app (see main.tsx). Be Vietnam Pro is designed for
+   Vietnamese diacritics; JetBrains Mono makes location codes such as ĐC-3.12 read like labels. */
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Calm "hymnal" palette: deep navy for actions and locations, a muted gold accent,
+   warm off-white background. Neutrals use Tailwind's stone scale. */
+@theme {
+  --color-canvas: #f7f6f3;
+
+  --color-brand-50: #f2f5fa;
+  --color-brand-100: #e3e9f3;
+  --color-brand-200: #c5d1e6;
+  --color-brand-300: #9cb0d2;
+  --color-brand-400: #6c88b8;
+  --color-brand-500: #4a69a0;
+  --color-brand-600: #375285;
+  --color-brand-700: #2d436c;
+  --color-brand-800: #263859;
+  --color-brand-900: #1f2d47;
+  --color-brand-950: #141d2f;
+
+  --color-gold-50: #fbf7ec;
+  --color-gold-100: #f5ebcd;
+  --color-gold-200: #ead49a;
+  --color-gold-300: #ddb862;
+  --color-gold-400: #d29f3c;
+  --color-gold-500: #c08529;
+  --color-gold-600: #a36721;
+  --color-gold-700: #834d1f;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-stone-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* No page scrolling behind an open dialog. */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-100);
+  }
+
+  /* We draw our own clear button in search fields. */
+  input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  dialog::backdrop {
+    background-color: rgb(20 29 47 / 0.5);
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}

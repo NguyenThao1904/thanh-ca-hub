@@ -1,0 +1,27 @@
+# Settings with secrets (examples are committed)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# The local database, uploaded files and backups
+backend/data/
+thanhca-backup-*.zip
+
+# Web app
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Editors and systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
